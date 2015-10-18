@@ -58,7 +58,23 @@ class XLarge {
   </header>
 
   <main>
-    Your Content Here
+<textarea name="abc" id="abc" cols="80" rows="15">{{ notes  }}
+</textarea>
+ <a class="ac-button md-default-theme"
+             [router-link]=" ['./timeflies'] "
+             (click)="active = 1"
+             [class.active]="active === 1">Timeflies</a>
+<hr />
+<div ng-click="App.addNote()" >Test</div>
+<div id="midi"></div>
+<div id="warnings"></div>
+<div id="music"></div>
+<div id="paper0"></div>
+<div id="paper1"></div>
+<div id="paper2"></div>
+<div id="paper3"></div>
+
+
     <div>
 
       <input type="text" [value]="title" (input)="title = $event.target.value" autofocus>
@@ -72,6 +88,7 @@ class XLarge {
     <pre>this.title = {{ title | json }}</pre>
     <pre>this.data = {{ data | json }}</pre>
 
+
   </main>
 
   <footer x-large>
@@ -82,10 +99,22 @@ class XLarge {
 export class App {
   // These are member type
   title: string;
+  notes: string;
   data: Array<any> = []; // default data
   // TypeScript public modifiers
   constructor(public http: Http) {
     this.title = 'Angular 2';
+    this.notes = "X: 1 \nT: Cooley\'s\n" +
+  "M: 4 / 4 \nL: 1 / 8\nR: reel\nK: Emin\n" +
+  '|:D2|EB{c}BA B2 EB|~B2 AB dBAG|FDAD BDAD|FDAD dAFD|' + "\n" +
+  'EBBA B2 EB|B2 AB defg|afe^c dBAF|DEFD E2:|' + "\n" +
+  '|:gf|eB B2 efge|eB B2 gedB|A2 FA DAFA|A2 FA defg|' + "\n" +
+  'eB B2 eBgB|eB B2 defg|afe^c dBAF|DEFD E2:|';
+
+  }
+  
+  addNote(){
+    this.notes += "A";
   }
 
   onInit() {

@@ -15,13 +15,19 @@
     ES6 browser shim
   -->
   <script src="/lib/es6-shim.js"></script>
+
 </head>
 <body>
 
   <app>
     Loading...
   </app>
-
+  <script type="text/javascript">
+  window.onload = function() {
+    abc_editor = new ABCJS.Editor("abc", { paper_id: "paper0", midi_id:"midi", warnings_id:"warnings" });
+  }
+</script>
+<script src="/lib/abc-editor.js"></script>
   <!-- Common files to be cached -->
   <script src="/__build__/common.js"></script>
   <!-- Angular2 files -->
